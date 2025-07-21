@@ -1,0 +1,28 @@
+name: Quarto Presentation Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Quarto
+      uses: quarto-dev/quarto-actions/setup@v1
+
+    - name: Render Quarto Presentation
+      run: quarto render index.qmd
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        publish_dir: ./_site
+        personal_token: ${{ secrets.GITHUB_TOKEN }}
