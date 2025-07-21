@@ -531,8 +531,6 @@ sum(degree(g1, mode="all")==0)
 -   This means that, from 2,901 communities, **71%** have only 1 resolution.
 -   But many resolutions might share a same topic even if they do not share a citation
 
-## Animation
-
 ## STM
 ```{r}
 #| echo: true
